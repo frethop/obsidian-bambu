@@ -18,11 +18,20 @@ export default class MyPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
+		const options = {
+			port: 8883,
+			log: console.log,
+			username: "frethop",
+			password: Buffer.from("19e34Bam##"),
+			protocolId: 'MQTT',
+		}
+
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			new Notice('This is a notice!');
-			const client = mqtt.connect("mqtt://test.mosquitto.org");
+			//let client = mqtt.connect("mqtt://test.mosquitto.org");
+			let client = mqtt.connect("mqtt://us.mqtt.bambulab.com:8883", options);
 			console.log("Connected to MQTT broker");
 			console.log(client);
 		});
