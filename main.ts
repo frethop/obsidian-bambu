@@ -1,5 +1,7 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 
+import mqtt from 'mqtt';
+
 // Remember to rename these classes and interfaces!
 
 interface MyPluginSettings {
@@ -20,8 +22,9 @@ export default class MyPlugin extends Plugin {
 		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			new Notice('This is a notice!');
-			const mqtt = require("mqtt");
-			const client = mqtt.connect("mqtt://test.mosquitto.org");	
+			const client = mqtt.connect("mqtt://test.mosquitto.org");
+			console.log("Connected to MQTT broker");
+			console.log(client);
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
