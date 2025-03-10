@@ -21,8 +21,8 @@ export default class MyPlugin extends Plugin {
 		const options = {
 			port: 8883,
 			log: console.log,
-			username: "frethop",
-			password: Buffer.from("19e34Bam##"),
+			username: "jipping@gmail.com",
+			password: Buffer.from("19e34Bam#"),
 			protocolId: 'MQTT',
 		}
 
